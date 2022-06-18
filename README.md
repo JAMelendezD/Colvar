@@ -29,7 +29,7 @@ once on the XY plane we can rotate along the z-axis then ${\theta_2} = (\cos(\th
 
 $$\theta_1 = \arctan2(-\vec{u}_z, \vec{u}_y) = -45.0^\circ \longrightarrow q_{\theta_1} = (0.92, -0.38, 0, 0)$$
 
-$$\theta_1 = \arctan2(-\vec{u}_z, \vec{u}_y)$$
+$$\theta_1 = \arctan2(-\vec{u}_z, \vec{u}_y) = -45.0^\circ$$
 
 $$\theta_2 = \arctan2(-(\cos(\theta_1)\vec{u}_y-\sin(\theta_1)\vec{u}_z), \vec{u}_x) = \arctan2(1.4, 1) = -54.7^\circ \longrightarrow q_{\theta_2} = (0.89, 0, 0, -0.46)$$
 
