@@ -25,7 +25,8 @@ then $q = (0, \vec{u}) = (0,1,1,1) \in \mathbf{H}$.
 We can write the quaternions in their angle axis notation for the rotations $(\cos(\theta/2), \text{axis}\times\sin(\theta/2))$.
 To place the vector unto the x-axis we can first rotate along the x-axis to put the vector in the XY plane therefore $q_{\theta_1} = (\cos(\theta_1/2),\sin(\theta_1/2),0,0)$
 once on the XY plane we can rotate along the z-axis then ${\theta_2} = (\cos(\theta_2/2), 0, 0,\sin(\theta_2/2))$
-(notice that this rotations are along the usual axis but the definition is not limited one can rotate along any axis). All we are missing is to figure out the necessary angles
+(notice that this rotations are along the usual axis but the definition is not limited one can rotate along any axis). 
+All we are missing is to figure out the necessary angles
 
 $$\theta_1 = \arctan2(-\vec{u}_z, \vec{u}_y) = -45.0^\circ \longrightarrow q_{\theta_1} = (0.92, -0.38, 0, 0)$$
 
