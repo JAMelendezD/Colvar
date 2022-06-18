@@ -5,3 +5,4 @@ vis.py
 /images/*.svg
 *.pdb
 *.dat
+*#
