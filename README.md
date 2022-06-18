@@ -8,7 +8,7 @@ and $\vec{v} \in \mathbf{R}^3$ then
 
 $$(r_1, \vec{v}_1)(r_2, \vec{v}_2) = (r_1r_2 - \vec{v}_1\cdot\vec{v}_2, r_1\vec{v}_2+r_2\vec{v}_1+\vec{v}_1\times\vec{v}_2)$$
 
-Quaternions can be stacked to perform multiple rotations for example given $\vec{u}\in\mathbf{R}^3$ and $\theta_{1}$ the angle needed to rotate $\vec{u}$ to lie in the XY plane and $\theta_{2}$ the angle needed to then rotate it unto the x-axis with quaternions one can simply do $(q_{\theta_2}q_{\theta_1})q(q_{\theta_2}q_{\theta_1})^{-1}$ where $q_{\theta}$ is the normalized quaternion related to the appropriate rotation and $q$ is $\vec{u}$ extended into a quaternion.
+Quaternions can be stacked to perform multiple rotations for example given $\vec{u} \in \mathbf{R}^3$ and $\theta_{1}$ the angle needed to rotate $\vec{u}$ to lie in the XY plane and $\theta_{2}$ the angle needed to then rotate it unto the x-axis with quaternions one can simply do $(q_{\theta_2}q_{\theta_1})q(q_{\theta_2}q_{\theta_1})^{-1}$ where $q_{\theta}$ is the normalized quaternion related to the appropriate rotation and $q$ is $\vec{u}$ extended into a quaternion.
 
 ## Example
 
