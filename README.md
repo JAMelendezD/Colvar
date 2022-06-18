@@ -31,7 +31,9 @@ $$\theta_1 = \arctan2(-\vec{u}_z, \vec{u}_y) = -45.0^\circ $$
 
 $$q_{\theta_1} = (0.92, -0.38, 0, 0)$$
 
-$$\theta_2 = \arctan2(-(\cos(\theta_1)\vec{u}_y-\sin(\theta_1)\vec{u}_z), \vec{u}_x) = \arctan2(1.4, 1) = -54.7^\circ \longrightarrow q_{\theta_2} = (0.89, 0, 0, -0.46)$$
+$$\theta_2 = \arctan2(-(\cos(\theta_1)\vec{u}_y-\sin(\theta_1)\vec{u}_z), \vec{u}_x) = \arctan2(1.4, 1) = -54.7^\circ $$
+
+$$q_{\theta_2} = (0.89, 0, 0, -0.46)$$
 
 $$q_{\theta_2} q_{\theta_1}  = ((0.92)(0.89)-0,(-0.34,0,0)+(0,0,-0.42)+(0,0.18,0))= (0.82,-0.34,0.18,-0.42)$$
 
