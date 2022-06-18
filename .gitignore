@@ -3,6 +3,10 @@ vis.py
 *.xvg
 /images/*.pse
 /images/*.svg
+/images/surf1.png
+/images/surf2.png
+/images/axis.png
+/images/cartoon.png
 *.pdb
 *.dat
 *#
