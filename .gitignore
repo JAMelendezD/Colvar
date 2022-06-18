@@ -3,3 +3,4 @@ vis.py
 *.xvg
 /images/*.pse
 *.pdb
+*.dat
