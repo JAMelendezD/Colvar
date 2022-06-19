@@ -56,6 +56,15 @@ class Quaternion():
         tmp = -((np.cos(ang) * self.q[2]) - (np.sin(ang) * self.q[3]))
         return ang, np.arctan2(tmp, self.q[1])
 
+    def interpolate(self, other, t):
+        t = t/2.0 # Not sure why this fixes it
+        cos_half_ang = np.dot(self.normalize().q, other.normalize().q)
+        sin_half_ang = np.sqrt(1-cos_half_ang*cos_half_ang)
+        half_ang = np.arccos(cos_half_ang)
+        numerator = self*np.sin((1.0-t)*half_ang) + other*np.sin(t*half_ang)
+        denominator = 1.0/sin_half_ang
+        return numerator*denominator
+
     @staticmethod
     def angaxis(angle, axis):
         '''

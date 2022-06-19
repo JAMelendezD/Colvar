@@ -62,22 +62,30 @@ class Geometry:
     def update_pos(self, new_pos):
         self.positions = new_pos
 
-    def write(self, name_out, ext):
+    def write(self, name_out, ext, mode='w', num=1):
         if ext == "in":
             fmt = "atom{:12.6f}{:12.6f}{:12.6f}{:>3s}\n"
-            with open(f"{name_out}.{ext}", "w") as f:
+            with open(f"{name_out}.{ext}", mode) as f:
                 for atom, pos in zip(self.atoms, self.positions):
                     f.write(fmt.format(*pos, atom))
         elif ext == 'xyz':
             fmt = "{:>3s}{:12.6f}{:12.6f}{:12.6f}\n"
-            with open(f"{name_out}.{ext}", "w") as f:
+            with open(f"{name_out}.{ext}", mode) as f:
                 for atom, pos in zip(self.atoms, self.positions):
                     f.write(fmt.format(atom, *pos))
         elif ext == 'pdb':
             fmt = "{:6s}{:5d} {:^4s}{:1s}{:3s} {:1s}{:4d}{:1s}   {:8.3f}{:8.3f}{:8.3f}{:6.2f}{:6.2f}          {:>2s}{:2s}\n"
-            with open(f"{name_out}.{ext}", "w") as f:
-                for line in self.header:
-                    f.write(line)
+            with open(f"{name_out}.{ext}", mode) as f:
+                if mode == 'a':
+                    for line in self.header:
+                        data = line.split()
+                        if data[0] == 'MODEL':
+                            f.write(f"MODEL{num:9d}\n")
+                        else:
+                            f.write(line)
+                else:
+                    for line in self.header:
+                        f.write(line)
                 for i in range(len(self.positions)):
                     f.write(fmt.format(*self.extra[i][0:2], self.atoms[i], *self.extra[i][3:8], *self.positions[i], *self.extra[i][11:]))
                 for line in self.footer:
