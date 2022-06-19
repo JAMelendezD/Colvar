@@ -45,14 +45,18 @@ initial_q = Quaternion.vec2quat(com_lig)
 # Creates the necessary quaternions to perform the rotation along x then z
 q = Quaternion.angaxis(np.pi, [1, 1, 1])
 rotated_q = initial_q.rotate(q)
+half_angle, cos_half_angle = q.half_angle(rotated_q)
+
+quats = []
+for j in range(N):
+    quats.append(Quaternion.vec2quat(new_pos[j]))
 
 for i in np.arange(0.0,1.01,0.01):
     print(i)
-    tmp = initial_q.interpolate(rotated_q, i).normalize()
+    tmp = initial_q.interpolate(rotated_q, i, half_angle, cos_half_angle).normalize()
     rotated = np.zeros((N,3))
     for j in range(N):
-        p = Quaternion.vec2quat(new_pos[j])
-        rotated[j] = p.rotate(tmp).tovec()
+        rotated[j] = quats[j].rotate(tmp).tovec()
 
     geom.update_pos(rotated)
     geom.write(f'ligand_interpolate', 'pdb', "a", int((i*100) + 1))

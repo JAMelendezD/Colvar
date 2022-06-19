@@ -41,12 +41,10 @@ class Quaternion():
         return np.sqrt(np.sum(self.q**2))
 
     def rotate(self, other):
-        q = other.normalize()
-        inv = other.inverse()
-        return q * self * inv
+        return other * self * other.conjugate()
 
     def tovec(self):
-        return(np.round(self.q[1:], 8))
+        return np.round(self.q[1:], 8)
 
     def liexy(self):
         return np.arctan2(-self.q[3], self.q[2])
@@ -56,11 +54,13 @@ class Quaternion():
         tmp = -((np.cos(ang) * self.q[2]) - (np.sin(ang) * self.q[3]))
         return ang, np.arctan2(tmp, self.q[1])
 
-    def interpolate(self, other, t):
-        t = t/2.0 # Not sure why this fixes it
+    def half_angle(self, other):
         cos_half_ang = np.dot(self.normalize().q, other.normalize().q)
+        return np.arccos(cos_half_ang), cos_half_ang 
+
+    def interpolate(self, other, t, half_ang, cos_half_ang):
+        t = t/2.0 # Not sure why this fixes it
         sin_half_ang = np.sqrt(1-cos_half_ang*cos_half_ang)
-        half_ang = np.arccos(cos_half_ang)
         numerator = self*np.sin((1.0-t)*half_ang) + other*np.sin(t*half_ang)
         denominator = 1.0/sin_half_ang
         return numerator*denominator
